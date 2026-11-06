@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0a08">
+<title>Deking Asp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <button class="logo" id="logo" aria-label="Deking Asp">DEKING ASP</button>
+    <div class="tools">
+      <button id="btnSearch" aria-label="Rechercher un titre"></button>
+      <button id="btnAdmin" aria-label="Espace administrateur" hidden></button>
+    </div>
+  </header>
+
+  <main class="views" id="views">
+    <section class="view on" id="v-home"></section>
+    <section class="view" id="v-music">
+      <h2 class="pt">Titres publiés</h2>
+      <div class="sub">Les morceaux officiellement publiés par DEKING ASP</div>
+      <input class="search" id="q" type="search" placeholder="Rechercher un titre ou un album" aria-label="Rechercher">
+      <div class="chips"><button class="chip on" id="chAll">Tous</button><button class="chip" id="chFav">Mes favoris</button></div>
+      <div class="tlist" id="musicList"></div>
+    </section>
+    <section class="view" id="v-clips"></section>
+    <section class="view" id="v-news"></section>
+    <section class="view" id="v-contact"></section>
+    <section class="view" id="v-login"></section>
+    <section class="view" id="v-admin"></section>
+  </main>
+
+  <div class="mini" id="mini">
+    <button class="open" id="miniOpen" aria-label="Ouvrir le lecteur">
+      <div id="miniArt" style="display:contents"></div>
+      <div class="meta"><b id="miniT"></b><small id="miniS"></small></div>
+    </button>
+    <div class="ctl2">
+      <button id="miniPrev" aria-label="Précédent"></button>
+      <button class="pp" id="miniPP" aria-label="Lecture / pause"></button>
+      <button id="miniNext" aria-label="Suivant"></button>
+    </div>
+    <div class="bar"><i id="miniBar"></i></div>
+  </div>
+
+  <nav id="nav">
+    <button class="on" data-tab="home"></button>
+    <button data-tab="music"></button>
+    <button data-tab="clips"></button>
+    <button data-tab="news"></button>
+    <button data-tab="contact"></button>
+  </nav>
+
+  <div class="full" id="full" aria-hidden="true">
+    <div class="head">
+      <button id="closeFull" aria-label="Fermer le lecteur"></button>
+      <div class="eb">En lecture</div>
+      <span style="width:44px"></span>
+    </div>
+    <div class="wrap" id="fullArt"></div>
+    <div class="titles">
+      <div><h3 id="fullT"></h3><small id="fullS"></small></div>
+      <button class="heart" id="fullFav" aria-label="Ajouter aux favoris"></button>
+    </div>
+    <div class="seek">
+      <input type="range" id="seek" min="0" max="1000" value="0" aria-label="Position">
+      <div><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    </div>
+    <div class="ctl">
+      <button id="shuf" aria-label="Aléatoire"></button>
+      <button class="skip" id="prev" aria-label="Précédent"></button>
+      <button class="big" id="pp" aria-label="Lecture / pause"></button>
+      <button class="skip" id="next" aria-label="Suivant"></button>
+      <button id="rep" data-mode="off" aria-label="Répéter"></button>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
